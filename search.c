@@ -1,16 +1,14 @@
 #include <cs50.h>
 #include <stdio.h>
 
-typedef struct 
-{
+typedef struct {
     string name;
     int votes;
 } candidate;
 
-int main(void)
-{
-    const int num_candidates = 3;
-    candidate candidates[num_candidates];
+int main(void) {
+    const int NUM_CANDIDATES = 3;
+    candidate candidates[NUM_CANDIDATES];
 
     candidates[0].name = "Carter";
     candidates[0].votes = 10;
@@ -23,20 +21,17 @@ int main(void)
 
     // Find highest number of votes
     int highest_votes = 0;
-    for (int i = 0; i < num_candidates; i++)
-    {
-        if (candidates[i].votes > highest_votes)
-        {
+    for (int i = 0; i < NUM_CANDIDATES; i++) {
+        if (candidates[i].votes > highest_votes) {
             highest_votes = candidates[i].votes;
         }
     }
-
-    // Print name of candidate with highest number of votes
-    for (int i = 0; i < num_candidates; i++)
-    {
-        if (candidates[i].votes == highest_votes)
-        {
-            printf("%s\n", candidates[i].name);
+    
+    // Print the candidate with the highest votes
+    for (int i = 0; i < NUM_CANDIDATES; i++) {
+        if (candidates[i].votes == highest_votes) {
+            printf("%s is the winner with %i votes\n", candidates[i].name, highest_votes);
         }
     }
+    return 0;
 }
