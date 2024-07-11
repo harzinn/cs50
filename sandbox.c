@@ -9,7 +9,7 @@ typedef struct {
 } family_member;
 
 int main(void) {
-    const int FAMILY_SIZE = 3;    // Constant defining the number of family members
+    const int FAMILY_SIZE = 4;    // Constant defining the number of family members
     string LAST_NAME = "Kruger";  // Last name of the family (common for all members)
     family_member members[FAMILY_SIZE];  // Array to store family members
 
@@ -22,6 +22,9 @@ int main(void) {
 
     members[2].FirstName = "Jaina";
     members[2].age = 11;
+
+    members[3].FirstName = "Thrall";
+    members[3].age = 13;
 
     // Loop through each family member and print their details
     for (int i = 0; i < FAMILY_SIZE; i++) {
