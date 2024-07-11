@@ -14,7 +14,7 @@ int main(void) {
     char *s = "HI!";
     printf("%c", *s);
     printf("%c", *(s + 1));
-    printf("%c\n", *(s + 2));
+    printf("%c\n", *(s + 2));  // Note: *s+2 without brackets led to anomolyous results
 
     // Same as above, but with array indexing!
     printf("%c", s[0]);
