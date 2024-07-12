@@ -10,14 +10,18 @@ int main(void) {
     // string s = "HI!";
     // printf("%s\n", s);  
  
+    // Accessing s as an array
+    // char *s = "HI!";
+    // printf("%c", s[0]);
+    // printf("%c", s[1]);
+    // printf("%c\n", s[2]);
+
     // Pointer arithmetic to get values of the "string" s, or the array of chars
     char *s = "HI!";
     printf("%c", *s);
     printf("%c", *(s + 1));
     printf("%c\n", *(s + 2));  // Note: *s+2 without brackets led to anomolyous results
 
-    // Same as above, but with array indexing!
-    printf("%c", s[0]);
-    printf("%c", s[1]);
-    printf("%c\n", s[2]);
+
+
 }
