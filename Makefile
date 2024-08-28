@@ -15,7 +15,6 @@ all: $(patsubst %.c,%,$(wildcard *.c)) $(patsubst %.c,%.o,$(wildcard %.c)) $(pat
 # Clean rule
 clean:
 	rm -f $(patsubst %.c,%,$(wildcard *.c)) $(wildcard *.o) $(wildcard *.s)
-	rm -rf *.dSYM
 
 # Phony targets
 .PHONY: all clean
