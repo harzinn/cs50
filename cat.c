@@ -9,7 +9,7 @@
  *   command-line argument.
  *
  * Usage:
- *   ./program_name <filename>
+ *   ./cat <filename>
  *
  *   The program expects exactly one argument, which is the name of the 
  *   file to be read. If the argument is not provided, or if the file 
