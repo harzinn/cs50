@@ -1,9 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int fact(int n);
 
-int main(void) {
-    printf("%i\n", fact(5));
+int main(int argc, char * argv[]) {
+    if (argc != 2) {
+        printf("Usage: ./sec_stack <value>\n");
+        return 1;
+    }
+    
+    printf("%i\n", fact(atoi(argv[1])));
+    return 0;
 }
 
 int fact(int n) {
