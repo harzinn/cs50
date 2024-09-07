@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     FILE *output = fopen(argv[2], "w");
     if (output == NULL) {
         printf("Could not write file\n");
+        fclose(input);
         return 3;
     }
 
