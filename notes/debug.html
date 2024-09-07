@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLDB Quick Usage Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLDB Quick Usage Guide</h1>
+
+    <h2>Step 1: Compile Your Program with Debug Symbols</h2>
+    <p>
+        Before you can use LLDB to debug your program, you need to compile it with debug information included. This is done using the <code>-g</code> flag with <code>clang</code>:
+    </p>
+    <pre>
+<code>clang -g /Users/harzinn/dev/cs50/factorial.c -o /Users/harzinn/dev/cs50/factorial -lcs50</code>
+    </pre>
+
+    <h2>Step 2: Launch LLDB with Your Program</h2>
+    <p>
+        Start LLDB and load your program:
+    </p>
+    <pre>
+<code>lldb /Users/harzinn/dev/cs50/factorial</code>
+    </pre>
+    <p>This will start LLDB and load the executable you want to debug.</p>
+
+    <h2>Step 3: Set `DYLD_LIBRARY_PATH`</h2>
+    <p>
+        Set the `DYLD_LIBRARY_PATH` environment variable to include the directory where the CS50 library is located:
+    </p>
+    <pre>
+<code>(lldb) settings set target.env-vars DYLD_LIBRARY_PATH=/usr/local/lib</code>
+    </pre>
+
+    <h2>Step 4: Set Breakpoints</h2>
+    <p>
+        Set breakpoints at lines of interest in your source code. For example, to set a breakpoint at line 10:
+    </p>
+    <pre>
+<code>breakpoint set --file factorial.c --line 10</code>
+    </pre>
+    <p>You can also set breakpoints at specific functions:</p>
+    <pre>
+<code>breakpoint set --name main</code>
+    </pre>
+
+    <h2>Step 5: Run the Program</h2>
+    <p>
+        Start running your program within LLDB:
+    </p>
+    <pre>
+<code>run</code>
+    </pre>
+    <p>The program will run until it hits a breakpoint, at which point LLDB will return control to you.</p>
+
+    <h2>Step 6: Step Through the Code</h2>
+    <p>
+        Once your program hits a breakpoint, you can step through your code line by line:
+    </p>
+    <ul>
+        <li><code>step</code> or <code>s</code>: Step into the next line of code (including into functions).</li>
+        <li><code>next</code> or <code>n</code>: Step over to the next line of code (skipping over function calls).</li>
+        <li><code>finish</code>: Run until the current function returns.</li>
+    </ul>
+
+    <h2>Step 7: Inspect Variables</h2>
+    <p>
+        To inspect the value of variables, use the <code>print</code> command:
+    </p>
+    <pre>
+<code>print variable_name</code>
+    </pre>
+    <p>For example:</p>
+    <pre>
+<code>print highest_votes</code>
+    </pre>
+    <p>You can also watch for changes to a variable:</p>
+    <pre>
+<code>watch set variable variable_name</code>
+    </pre>
+
+    <h2>Step 8: Continue Execution</h2>
+    <p>
+        To continue running the program until the next breakpoint or the end of the program:
+    </p>
+    <pre>
+<code>continue</code>
+    </pre>
+
+    <h2>Step 9: Exit LLDB</h2>
+    <p>
+        To exit LLDB:
+    </p>
+    <pre>
+<code>quit</code>
+    </pre>
+
+    <h2>Example Debugging Session</h2>
+    <p>Here’s a step-by-step example of a debugging session using LLDB:</p>
+    <ol>
+        <li>
+            <strong>Compile with Debug Information:</strong>
+            <pre><code>clang -g /Users/harzinn/dev/cs50/factorial.c -o /Users/harzinn/dev/cs50/factorial -lcs50</code></pre>
+        </li>
+        <li>
+            <strong>Start LLDB:</strong>
+            <pre><code>lldb /Users/harzinn/dev/cs50/factorial</code></pre>
+        </li>
+        <li>
+            <strong>Set `DYLD_LIBRARY_PATH`:</strong>
+            <pre><code>(lldb) settings set target.env-vars DYLD_LIBRARY_PATH=/usr/local/lib</code></pre>
+        </li>
+        <li>
+            <strong>Set Breakpoint at <code>main</code>:</strong>
+            <pre><code>(lldb) breakpoint set --name main</code></pre>
+        </li>
+        <li>
+            <strong>Run the Program:</strong>
+            <pre><code>(lldb) run</code></pre>
+        </li>
+        <li>
+            <strong>Step Through Code:</strong>
+            <pre><code>(lldb) next  # Step to the next line of code
+(lldb) step  # Step into a function</code></pre>
+        </li>
+        <li>
+            <strong>Inspect Variables:</strong>
+            <pre><code>(lldb) print highest_votes</code></pre>
+        </li>
+        <li>
+            <strong>Watch a Variable:</strong>
+            <pre><code>(lldb) watch set variable highest_votes</code></pre>
+        </li>
+        <li>
+            <strong>Continue Execution:</strong>
+            <pre><code>(lldb) continue</code></pre>
+        </li>
+        <li>
+            <strong>Exit LLDB:</strong>
+            <pre><code>(lldb) quit</code></pre>
+        </li>
+    </ol>
+
+    <p>By following these steps, you can effectively debug your C program, set breakpoints, inspect variables, and watch how they change as your program executes. Happy debugging!</p>
+</body>
+</html>
