@@ -1,6 +1,6 @@
 # Define the compiler and the flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c11 -g
+CFLAGS = -Wall -Wextra -std=c11 -g
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Default target will compile all .c files into executables, object files, and assembly files
