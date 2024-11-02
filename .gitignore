@@ -1,3 +1,4 @@
 *.dYSM
 *.exe
 .vscode/
+cs50/
