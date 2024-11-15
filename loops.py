@@ -8,3 +8,12 @@
 
 for _ in range(3):
     print('Hello, World')
+
+
+for i in range(4):
+    print(f'Why not {i}')
+
+print('Done')
+
+for _ in range(5):
+    print(f'{_}')
